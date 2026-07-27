@@ -1,0 +1,129 @@
+{% extends "layout.html" %}
+
+{% block titulo %}
+Editar Despesa
+{% endblock %}
+
+{% block conteudo %}
+
+<div class="card shadow">
+
+    <div class="card-header bg-warning">
+        <h2>✏️ Editar Despesa</h2>
+    </div>
+
+    <div class="card-body">
+
+        <form id="formAtualizar" action="/atualizar" method="POST">
+
+            <input
+                type="hidden"
+                name="id"
+                value="{{ despesa[0] }}">
+
+            <div class="mb-3">
+                <label class="form-label">Nome</label>
+
+                <input
+                    class="form-control"
+                    type="text"
+                    name="nome"
+                    value="{{ despesa[1] }}"
+                    required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Descrição</label>
+
+                <input
+                    class="form-control"
+                    type="text"
+                    name="descricao"
+                    value="{{ despesa[2] }}">
+            </div>
+
+            <div class="mb-3">
+
+                <label class="form-label">Categoria</label>
+
+                <select
+                    class="form-select"
+                    name="categoria">
+
+                    <option value="Alimentação"
+                    {% if despesa[3] == "Alimentação" %}selected{% endif %}>
+                        🍔 Alimentação
+                    </option>
+
+                    <option value="Transporte"
+                    {% if despesa[3] == "Transporte" %}selected{% endif %}>
+                        🚗 Transporte
+                    </option>
+
+                    <option value="Moradia"
+                    {% if despesa[3] == "Moradia" %}selected{% endif %}>
+                        🏠 Moradia
+                    </option>
+
+                    <option value="Lazer"
+                    {% if despesa[3] == "Lazer" %}selected{% endif %}>
+                        🎮 Lazer
+                    </option>
+
+                    <option value="Saúde"
+                    {% if despesa[3] == "Saúde" %}selected{% endif %}>
+                        🏥 Saúde
+                    </option>
+
+                    <option value="Educação"
+                    {% if despesa[3] == "Educação" %}selected{% endif %}>
+                        📚 Educação
+                    </option>
+
+                    <option value="Outros"
+                    {% if despesa[3] == "Outros" %}selected{% endif %}>
+                        📦 Outros
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="mb-3">
+
+                <label class="form-label">Valor</label>
+
+                <input
+                    class="form-control"
+                    type="number"
+                    step="0.01"
+                    name="valor"
+                    value="{{ despesa[4] }}"
+                    required>
+
+            </div>
+
+            <button
+                id="btnAtualizar"
+                class="btn btn-success"
+                type="submit">
+
+                <i class="bi bi-check-circle"></i> Salvar Alterações
+
+            </button>
+
+            <a
+                href="/"
+                class="btn btn-secondary">
+
+                <i class="bi bi-x-circle"></i> Cancelar
+
+            </a>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

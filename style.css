@@ -1,0 +1,224 @@
+/* ===========================
+      VARIÁVEIS DE TEMA
+=========================== */
+
+[data-tema="roxo"] {
+    --tema-primaria: #6D28D9;
+    --tema-contraste: #FFFFFF;
+    --tema-acento: #6D28D9;
+    --tema-secundaria: #8B5CF6;
+    --tema-terciaria: #7C3AED;
+    --tema-terciaria-texto: #FFFFFF;
+    --tema-fundo: #F5F3FF;
+    --tema-fundo-card: #FFFFFF;
+    --tema-texto: #2E1065;
+    --tema-borda: #C4B5FD;
+}
+
+[data-tema="azul"] {
+    --tema-primaria: #1E3A8A;
+    --tema-contraste: #FFFFFF;
+    --tema-acento: #1E3A8A;
+    --tema-secundaria: #2563EB;
+    --tema-terciaria: #0F172A;
+    --tema-terciaria-texto: #FFFFFF;
+    --tema-fundo: #EEF4FF;
+    --tema-fundo-card: #FFFFFF;
+    --tema-texto: #0F172A;
+    --tema-borda: #BFDBFE;
+}
+
+[data-tema="dourado"] {
+    --tema-primaria: #1F1F1F;
+    --tema-contraste: #FFD700;
+    --tema-acento: #FFD700;
+    --tema-secundaria: #FFD700;
+    --tema-terciaria: #B8860B;
+    --tema-terciaria-texto: #FFFFFF;
+    --tema-fundo: #111111;
+    --tema-fundo-card: #1F1F1F;
+    --tema-texto: #FFFFFF;
+    --tema-borda: #FFD700;
+}
+
+[data-tema="verde"] {
+    --tema-primaria: #15803D;
+    --tema-contraste: #FFFFFF;
+    --tema-acento: #15803D;
+    --tema-secundaria: #22C55E;
+    --tema-terciaria: #16A34A;
+    --tema-terciaria-texto: #FFFFFF;
+    --tema-fundo: #F0FDF4;
+    --tema-fundo-card: #FFFFFF;
+    --tema-texto: #14532D;
+    --tema-borda: #BBF7D0;
+}
+
+/* ===========================
+      APLICAÇÃO DO TEMA
+=========================== */
+
+body {
+    background: var(--tema-fundo);
+    color: var(--tema-texto);
+    font-family: Arial, Helvetica, sans-serif;
+    transition: background .3s, color .3s;
+}
+
+.navbar {
+    background: var(--tema-primaria) !important;
+}
+
+.navbar-brand {
+    color: var(--tema-contraste) !important;
+}
+
+.card {
+    background: var(--tema-fundo-card);
+    color: var(--tema-texto);
+}
+
+.card-header.bg-success,
+.card-header.bg-warning {
+    background: var(--tema-primaria) !important;
+    color: var(--tema-contraste) !important;
+}
+
+.border-success { border-color: var(--tema-acento) !important; }
+.text-success { color: var(--tema-acento) !important; }
+
+.border-primary { border-color: var(--tema-secundaria) !important; }
+.text-primary { color: var(--tema-secundaria) !important; }
+
+.border-warning { border-color: var(--tema-terciaria) !important; }
+.text-warning { color: var(--tema-terciaria) !important; }
+
+.border-danger { border-color: var(--tema-terciaria) !important; }
+.text-danger { color: var(--tema-terciaria) !important; }
+
+.border-info { border-color: var(--tema-secundaria) !important; }
+.text-info { color: var(--tema-secundaria) !important; }
+
+.border-secondary { border-color: var(--tema-acento) !important; }
+.text-secondary { color: var(--tema-acento) !important; }
+
+.border-dark { border-color: var(--tema-texto) !important; }
+.text-dark { color: var(--tema-texto) !important; }
+
+.btn-success {
+    background: var(--tema-primaria) !important;
+    border-color: var(--tema-primaria) !important;
+    color: var(--tema-contraste) !important;
+}
+
+.btn-warning {
+    background: var(--tema-terciaria) !important;
+    border-color: var(--tema-terciaria) !important;
+    color: var(--tema-terciaria-texto) !important;
+}
+
+.table {
+    --bs-table-color: var(--tema-texto);
+    --bs-table-striped-color: var(--tema-texto);
+    --bs-table-hover-color: var(--tema-texto);
+    color: var(--tema-texto);
+}
+
+.table thead.table-dark {
+    background: var(--tema-primaria) !important;
+    color: var(--tema-contraste) !important;
+}
+
+.table tbody tr:hover {
+    background: var(--tema-fundo) !important;
+}
+
+.form-control,
+.form-select {
+    border-color: var(--tema-borda);
+    background: var(--tema-fundo-card);
+    color: var(--tema-texto);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--tema-secundaria);
+    background: var(--tema-fundo-card);
+    color: var(--tema-texto);
+    box-shadow: 0 0 0 .25rem rgba(0, 0, 0, .1);
+}
+
+a {
+    color: var(--tema-acento);
+}
+
+a:hover {
+    color: var(--tema-secundaria);
+}
+
+/* ===========================
+      ESTRUTURA E EFEITOS
+=========================== */
+
+.navbar {
+    border-radius: 0 0 15px 15px;
+}
+
+.card {
+    border: none;
+    border-radius: 15px;
+    transition: 0.3s;
+    animation: entrada-suave .4s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+@keyframes entrada-suave {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card-header {
+    border-radius: 15px 15px 0 0 !important;
+}
+
+.btn {
+    border-radius: 10px;
+}
+
+.table {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.form-control,
+.form-select {
+    border-radius: 10px;
+}
+
+h2,
+h3,
+h5 {
+    font-weight: bold;
+}
+
+.shadow-sm {
+    transition: .3s;
+}
+
+.shadow-sm:hover {
+    transform: scale(1.03);
+}
+
+.card-body h2 {
+    font-size: 2rem;
+    font-weight: bold;
+}
